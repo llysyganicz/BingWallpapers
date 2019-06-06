@@ -1,3 +1,4 @@
+using BingWallpapers.Services;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -9,6 +10,7 @@ namespace BingWallpapers.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SimpleIoc.Default.Register<DialogService>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
