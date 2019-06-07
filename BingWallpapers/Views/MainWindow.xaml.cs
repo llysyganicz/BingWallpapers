@@ -15,6 +15,7 @@ namespace BingWallpapers.Views
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.Hide();
+            BingWallpapers.Properties.Settings.Default.Save();
             e.Cancel = true;
         }
     }

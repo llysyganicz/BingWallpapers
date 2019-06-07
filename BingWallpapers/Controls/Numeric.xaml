@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="BingWallpapers.Controls.Numeric"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BingWallpapers.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="NumericLoaded">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel LastChildFill="True">
+        <Button Content="-" DockPanel.Dock="Left" Click="DecreaseClick"/>
+        <Button Content="+" DockPanel.Dock="Right" Click="IncreaseClick"/>
+        <TextBox DockPanel.Dock="Right" LostFocus="TextBoxLostFocus" x:Name="valueText" TextAlignment="Right" MinWidth="20"/>
+    </DockPanel>
+</UserControl>
