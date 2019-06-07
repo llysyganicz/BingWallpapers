@@ -1,4 +1,5 @@
-﻿using BingWallpapers.Views;
+﻿using BingWallpapers.Services;
+using BingWallpapers.Views;
 using System;
 using System.IO;
 using System.Windows;
@@ -21,7 +22,16 @@ namespace BingWallpapers
                 Settings.Default.Save();
                 window.Show();
             }
+            else
+            {
+                Updater.Instance.Start(Settings.Default.UpdateInterval);
+            }
             TrayIcon.Create(window);
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Updater.Instance.Stop();
         }
     }
 }
