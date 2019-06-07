@@ -83,6 +83,5 @@ namespace BingWallpapers.Controls
         {
             valueText.Text = Value.ToString();
         }
-
     }
 }
