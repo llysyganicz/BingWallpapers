@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BingWallpapers.Helpers;
+using System;
 using System.Reactive.Linq;
 
 namespace BingWallpapers.Services
@@ -7,6 +8,7 @@ namespace BingWallpapers.Services
     {
         private IDisposable subscription;
         private readonly ImageDownloader imageDownloader = new ImageDownloader();
+        private readonly Wallpaper wallpaper = new Wallpaper();
 
         private static Updater instance = null;
         public static Updater Instance => instance ?? (instance = new Updater());
@@ -26,7 +28,10 @@ namespace BingWallpapers.Services
         private async void DownloadImage(long parameter)
         {
             if (await imageDownloader.NeedsDownload().ConfigureAwait(false))
-                await imageDownloader.DownloadImage().ConfigureAwait(false);
+            {
+                var filename = await imageDownloader.DownloadImage().ConfigureAwait(false);
+                wallpaper.Set(filename);
+            }
         }
     }
 }
