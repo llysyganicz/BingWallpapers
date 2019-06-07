@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrl="clr-namespace:BingWallpapers.Controls"
         mc:Ignorable="d"
         Title="Bing wallpapers" Height="450" Width="800"
         DataContext="{Binding Source={StaticResource ResourceKey=Locator}, Path=Main}"
@@ -27,10 +28,14 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Wallpaper directory:" Grid.Column="0" Grid.Row="0"/>
         <TextBox Text="{Binding Path=Path}" IsEnabled="False" Grid.Column="1" Grid.Row="0"/>
         <Button Content="Change path" Command="{Binding Path=ChangePath}" Grid.Column="2" Grid.Row="0"/>
+
+        <TextBlock Text="Interval:" Grid.Column="0" Grid.Row="1"/>
+        <ctrl:Numeric Value="{Binding Path=Interval}" HorizontalAlignment="Left" Min="1" Max="24" Step="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
     </Grid>
 </Window>

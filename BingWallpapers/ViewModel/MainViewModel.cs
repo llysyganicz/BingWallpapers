@@ -24,6 +24,7 @@ namespace BingWallpapers.ViewModel
             set
             {
                 pathSubject.OnNext(value);
+                Properties.Settings.Default.WallpapersPath = value;
                 RaisePropertyChanged();
             }
         }
@@ -34,6 +35,7 @@ namespace BingWallpapers.ViewModel
             set
             {
                 intervalSubject.OnNext(value);
+                Properties.Settings.Default.UpdateInterval = value;
                 RaisePropertyChanged();
             }
         }
